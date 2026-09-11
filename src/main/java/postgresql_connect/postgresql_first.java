@@ -22,8 +22,18 @@ public class postgresql_first {
 		
 		Session session = factory.openSession();
 		Transaction transaction = session.beginTransaction();
-		session.persist(s1);
+		
+//		this is for insert data 
+//		session.persist(s1);
+// this is to fetch 
+		Student d1 =session.get(Student.class, 1); //this is old method removed on version 6
+		Student d2 =session.find(Student.class, 2);//new method //this method is called eager loading where we need to use print statement to print the data 
+		Student d3 =session.byId(Student.class).getReference(3);//for this method  we dont have to use print statement this is called lazy loading 
+		
+		System.out.println(d2);
+		
 		transaction.commit();
+		
 		
 		
 	}
