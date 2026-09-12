@@ -32,7 +32,7 @@ public class postgresql_first {
 //		
 //		System.out.println(d2);
     	Student s2 = session.find(Student.class, 8);
-    	session.remove(s2);
+    	session.remove(s2);  //to delete the row use session.remove()
 		transaction.commit();
 		
 		
