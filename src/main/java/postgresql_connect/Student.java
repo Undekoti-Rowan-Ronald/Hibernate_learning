@@ -7,10 +7,11 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Column;
 
 @Entity
-
+@Table(name="students") // to change the table name 
 public class Student {
 private String name;
 @Id
+@Column(name="id") //to change the coloum name 
 private int aid;
 private String tech ;
 public String getName() {
