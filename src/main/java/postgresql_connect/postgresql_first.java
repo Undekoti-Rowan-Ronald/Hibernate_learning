@@ -6,7 +6,7 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public class postgresql_first {
-
+//git alter
 	public static void main(String[] args) {
 	
 //		to connect we need session 
