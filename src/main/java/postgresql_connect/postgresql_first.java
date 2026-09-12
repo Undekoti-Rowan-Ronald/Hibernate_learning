@@ -8,11 +8,7 @@ import org.hibernate.cfg.Configuration;
 public class postgresql_first {
 
 	public static void main(String[] args) {
-		Student s1 =new Student();
-		s1.setName("Ram Chandra");
-		s1.setAid(7);
-		s1.setTech("spring");
-		
+	
 //		to connect we need session 
 		
 		Configuration config = new Configuration();
@@ -21,22 +17,25 @@ public class postgresql_first {
 		SessionFactory  factory = config.buildSessionFactory();
 		
 		Session session = factory.openSession();
-		Transaction transaction = session.beginTransaction(); //only need while using ddl quaries like update ,insert..etc 
+	
 		
-//		this is for insert data 
-		session.persist(s1);
-// this is to fetch 
-//		Student d1 =session.get(Student.class, 1); //this is old method removed on version 6
-//		Student d2 =session.find(Student.class, 2);//new method //this method is called eager loading where we need to use print statement to print the data 
-//		Student d3 =session.byId(Student.class).getReference(3);//for this method  we dont have to use print statement this is called lazy loading 
-		
-//		session.merge(s1);//can me used to update and also to create if id is not existed 
-//		Student s8=session.find(Student.class, 4);
-//		session.remove(s8);
-//		transaction.commit();
-		
-		
-		
+		Transaction transaction= session.beginTransaction();	 //only need while using ddl quaries like update ,insert..etc 
+
+		Student s1 = new Student();
+
+		s1.setAid(7);
+		s1.setName("Ram Chandra");
+		s1.setTech("spring");
+
+		Student updated = session.merge(s1);
+
+		System.out.println("After merge:");
+		System.out.println(updated);
+
+		transaction.commit();
+
+		session.close();
+		factory.close();
 	}
  
 }
