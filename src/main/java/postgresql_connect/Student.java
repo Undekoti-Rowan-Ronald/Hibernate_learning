@@ -2,6 +2,7 @@ package postgresql_connect;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
 
